@@ -1,1 +1,3 @@
-What the hell?
+# Neovim Configuration
+
+Configure Neovim with Lua.
