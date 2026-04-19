@@ -1,0 +1,17 @@
+# VCS
+.git/
+
+# macOS metadata
+.DS_Store
+**/.DS_Store
+
+# Packer compilation output (generated, regenerated on every PackerSync)
+plugin/packer_compiled.lua
+
+# Plugin source trees — these are dependencies, not your code.
+# Packer installs them under stdpath('data'), but if you ever vendor
+# anything under pack/ again, ignore it here too.
+pack/
+
+# ai-digest's own output, so re-runs don't snowball
+codebase.md

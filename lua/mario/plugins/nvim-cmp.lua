@@ -30,9 +30,10 @@ cmp.setup({
   }),
    -- sources for autocompletion
   sources = cmp.config.sources({
-    { name = "nvim_lsp" }, -- lsp
-    { name = "luasnip" }, -- snippets
-    { name = "buffer" }, -- text within current buffer
-    { name = "path" }, -- file system paths
+    { name = "copilot", group_index = 2 }, -- AI completions
+    { name = "nvim_lsp", group_index = 2 }, -- LSP completions
+    { name = "luasnip", group_index = 2 }, -- snippet completions
+    { name = "buffer", group_index = 2 }, -- buffer completions
+    { name = "path", group_index = 2 }, -- file path completions
   }),
 })

@@ -23,13 +23,4 @@ vim.api.nvim_set_keymap('v', '<A-Down>', ":m '>+1<CR>gv=gv", opts)
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle Tree with space + E
 vim.keymap.set("n", "<leader>f", ":NvimTreeFocus<CR>") -- focus Tree with space + F
 
--- Custom User Commands
--- Creates a :Cpd command that executes :Copilot disable
-vim.api.nvim_create_user_command('Cd', 'Copilot disable', {
-  desc = "Disable GitHub Copilot"
-})
 
--- You could also add one for enabling it again
-vim.api.nvim_create_user_command('Ce', 'Copilot enable', {
-  desc = "Enable GitHub Copilot"
-})

@@ -52,7 +52,11 @@ return packer.startup(function(use)
     use("hrsh7th/cmp-buffer")
     use("hrsh7th/cmp-path")
 
-  -- snippets
+    -- copilot (LSP-based, replaces github/copilot.vim)
+    use("zbirenbaum/copilot.lua")
+    use("zbirenbaum/copilot-cmp")
+
+    -- snippets
     use("L3MON4D3/LuaSnip")
     use("saadparwaiz1/cmp_luasnip")
     use("rafamadriz/friendly-snippets")
