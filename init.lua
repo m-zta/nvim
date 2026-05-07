@@ -1,12 +1,8 @@
-require("mario.plugins-setup")
+-- Must be set BEFORE lazy.nvim loads
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+require("mario.lazy-bootstrap")  -- new: sets up lazy.nvim
 require("mario.core.options")
 require("mario.core.keymaps")
-require("mario.core.colorscheme")
-require("mario.plugins.comment")
-require("mario.plugins.nvim-tree")
-require("mario.plugins.lualine")
-require("mario.plugins.nvim-cmp")
-require("mario.plugins.autopairs")
-require("mario.plugins.treesitter")
-require("mario.plugins.ibl")
-require("mario.plugins.copilot")
+-- plugins, colorscheme, etc. are now managed by lazy

@@ -2,10 +2,6 @@
 
 -- allows us to set custom keyboard shortcuts that
 -- don't clash with the vim defaults.
--- The leader key
--- will therefore be the space key, which is easier
--- to access than the vim default leader key '\'
-vim.g.mapleader = " "
 
 -- general keymaps
 vim.keymap.set("i", "jk", "<ESC>") -- when entering insert mode, using 'jk' will be the same as using <esc>

@@ -1,43 +1,29 @@
--- import nvim-treesitter plugin safely
-local status, treesitter = pcall(require, "nvim-treesitter.configs")
-if not status then
-  return
-end
+return {
+  {
+    "nvim-treesitter/nvim-treesitter",
+    branch = "main",
+    build = ":TSUpdate",
+    lazy = false,
+    config = function()
+      local parsers = {
+        "c", "cpp", "c_sharp", "json", "javascript", "typescript",
+        "yaml", "html", "css", "markdown", "markdown_inline", "php",
+        "python", "tsx", "sql", "svelte", "swift", "bash", "lua",
+        "vim", "vimdoc", "gitignore",
+      }
 
--- configure treesitter
-treesitter.setup({
-  -- enable syntax highlighting
-  highlight = {
-    enable = true,
+      require("nvim-treesitter").install(parsers)
+
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function(args)
+          local lang = vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)
+          if lang and pcall(vim.treesitter.start, args.buf, lang) then
+            -- treesitter-based indent
+            vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          end
+        end,
+      })
+    end,
   },
-  -- enable indentation
-  indent = { enable = true },
-  -- enable autotagging (w/ nvim-ts-autotag plugin)
-  autotag = { enable = true },
-  -- ensure these language parsers are installed
-  ensure_installed = {
-    "c",
-    "c_sharp",
-    "cpp",
-    "json",
-    "javascript",
-    "typescript",
-    "yaml",
-    "html",
-    "css",
-    "markdown",
-    "markdown_inline",
-    "php",
-    "python",
-    "tsx",
-    "sql",
-    "svelte",
-    "swift",
-    "bash",
-    "lua",
-    "vim",
-    "gitignore",
-  },
-  -- auto install above language parsers
-  auto_install = true,
-})
+  { "windwp/nvim-ts-autotag", opts = {} },
+}
