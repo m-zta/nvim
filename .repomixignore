@@ -1,0 +1,30 @@
+# Repomix's own output (avoid recursive ingestion)
+repomix-output.*
+
+# Lock files — usually noise unless you specifically need them
+# (lazy-lock.json IS included via the include list above; everything else out)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+Cargo.lock
+
+# Compiled / generated
+plugin/packer_compiled.lua
+**/*.so
+**/*.dylib
+
+# Spell files, parsers (if any ever leak into the repo)
+spell/
+parser/
+
+# OS / editor cruft (also in .gitignore but belt-and-suspenders)
+.DS_Store
+*.swp
+
+# Local notes
+codebase.md
+codebase.txt
+nvim.txt
+
+# Git internals (repomix usually skips these via useGitignore, but explicit is safer)
+.git/
